@@ -1,0 +1,48 @@
+@import "../variablesAndMixins.less";
+
+.header {
+  padding: 34px 32px;
+  .header__nav {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
+    .header__navButtonsList {
+      display: flex;
+      column-gap: 16px;
+      .header__navButton {
+        padding: 12px 16px;
+        transition: background-color 0.2s ease border 0.2s ease-in;
+        &:hover {
+          .buttonAddStyles();
+        }
+      }
+    }
+  }
+  .header__rightBlock {
+    display: flex;
+    column-gap: 16px;
+    justify-content: flex-end;
+    align-items: center;
+    button {
+      .buttonAddStyles(@backgroundColor: @buttonBackgroundColor);
+    }
+    .header__cartButton {
+      padding: 0;
+      width: 32px;
+      height: 32px;
+      font-size: 10px;
+      text-align: center;
+    }
+
+    .header__signUpButton {
+      div {
+        display: flex;
+        flex-direction: column;
+        max-height: 14.39px;
+        overflow-y: hidden;
+        scroll-behavior: smooth;
+        transition: scroll-behavior 2s ease-in-out;
+      }
+    }
+  }
+}
