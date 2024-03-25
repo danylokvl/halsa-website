@@ -1,16 +1,13 @@
-import { useRef } from "react";
+import { useState } from "react";
 
-const ScrollableButton = ({ className, children }) => {
-  const blockRef = useRef(null);
+const ScrollableButton = ({ className, children, onClick }) => {
+  const [mouseOn, setMouseOn] = useState(false);
+
   return (
-    <button className={className}>
-      <div
-        ref={blockRef}
-        onMouseEnter={() => (blockRef.current.scrollTop += 15)}
-        onMouseLeave={() => (blockRef.current.scrollTop -= 15)}
-      >
-        <span>{children}</span>
-        <span>{children}</span>
+    <button className={className} onClick={onClick}>
+      <div onMouseEnter={() => setMouseOn(true)} onMouseLeave={() => setMouseOn(false)}>
+        <span className={mouseOn ? "mouseOn" : null}>{children}</span>
+        <span className={mouseOn ? "mouseOn" : null}>{children}</span>
       </div>
     </button>
   );

@@ -1,0 +1,35 @@
+@import "../variablesAndMixins.less";
+
+.header__burgerMenuButton {
+  width: 30px;
+  height: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+  .header__burgerMenuLine {
+    height: 1px;
+    width: 100%;
+    background-color: @primaryColor;
+    transition: transform 0.5s ease;
+  }
+
+  .header__burgerMenuLine:first-child {
+    transform-origin: top right;
+  }
+  .header__burgerMenuLine:last-child {
+    transform-origin: bottom right;
+  }
+
+  &.pressed {
+    .header__burgerMenuLine:first-child {
+      transform: rotate(-32deg) scaleX(2);
+    }
+    .header__burgerMenuLine:nth-child(2) {
+      transform: translateX(50px);
+    }
+    .header__burgerMenuLine:last-child {
+      transform: rotate(32deg) scaleX(2);
+    }
+  }
+}

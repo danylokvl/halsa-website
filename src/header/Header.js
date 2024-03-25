@@ -1,6 +1,7 @@
 import "./header.less";
 import logo from "./img/logo.svg";
 import ScrollableButton from "../components/ScrollableButton";
+import BurgerMenu from "./BurgerMenu";
 
 const Header = () => {
   return (
@@ -31,6 +32,7 @@ const Header = () => {
           <button className="header__cartButton">0</button>
           <ScrollableButton className="header__signUpButton">Sign Up</ScrollableButton>
         </div>
+        <BurgerMenu />
       </nav>
     </header>
   );
