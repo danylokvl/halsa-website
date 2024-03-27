@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./burgerMenu.less";
 
 const BurgerMenu = () => {
@@ -6,6 +6,7 @@ const BurgerMenu = () => {
 
   return (
     <button
+      title="button"
       className={pressed ? "header__burgerMenuButton pressed" : "header__burgerMenuButton"}
       onClick={() => setPressed(!pressed)}
     >

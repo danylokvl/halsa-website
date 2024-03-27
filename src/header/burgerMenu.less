@@ -3,19 +3,28 @@
 .header__burgerMenuButton {
   width: 30px;
   height: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   overflow: hidden;
+  display: none;
+
+  @media (max-width: @sizes[tablet]) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
   .header__burgerMenuLine {
     height: 1px;
     width: 100%;
     background-color: @primaryColor;
-    transition: transform 0.5s ease;
+    transition: transform 0.3s ease-in-out;
   }
 
   .header__burgerMenuLine:first-child {
     transform-origin: top right;
+  }
+  .header__burgerMenuLine:nth-child(2) {
+    transition: transform 0.3s ease-in-out;
+    transition-delay: 0.5s;
   }
   .header__burgerMenuLine:last-child {
     transform-origin: bottom right;
@@ -23,13 +32,16 @@
 
   &.pressed {
     .header__burgerMenuLine:first-child {
-      transform: rotate(-32deg) scaleX(2);
+      transition-delay: 0.5s;
+      transform: rotate(-40deg);
     }
     .header__burgerMenuLine:nth-child(2) {
+      transition-delay: 0s;
       transform: translateX(50px);
     }
     .header__burgerMenuLine:last-child {
-      transform: rotate(32deg) scaleX(2);
+      transition-delay: 0.5s;
+      transform: rotate(40deg);
     }
   }
 }
