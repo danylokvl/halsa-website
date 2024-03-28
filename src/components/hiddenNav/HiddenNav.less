@@ -1,0 +1,68 @@
+@import "../../variablesAndMixins.less";
+
+.header__hiddenNav {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 10%;
+  justify-content: space-between;
+  background-color: @primaryColor;
+  max-height: 550px;
+  padding: 28px;
+  border-radius: 2rem;
+  @media (max-width: 999px) {
+    display: none;
+  }
+
+  .header__hiddenNavLeftContainer {
+    padding: 16px;
+    display: flex;
+    flex-direction: column-reverse;
+    width: 350px;
+    height: 350px;
+    background-image: url("../../assets/img/hiddenNavImg.webp");
+    background-size: contain;
+    border-radius: 2rem;
+
+    @media (max-width: 1000px) {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  .header__hiddenNavLinksContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    .header__hiddenNavLinksList {
+      h6 {
+        .textAddStyles(@white, 16px, bold);
+        margin-bottom: 20px;
+      }
+      ul {
+        display: grid;
+        grid-template-rows: repeat(5, min-content);
+        row-gap: 16px;
+        li {
+          display: inline-block;
+          position: relative;
+          width: fit-content;
+          overflow: hidden;
+          white-space: nowrap;
+
+          a {
+            .textAddStyles(rgba(255,255,255,0.7), 16px, 400);
+            .linkAddLineEffect(@white);
+            &:hover {
+              color: @white;
+            }
+          }
+        }
+      }
+    }
+  }
+}

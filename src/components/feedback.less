@@ -1,0 +1,42 @@
+@import "../variablesAndMixins.less";
+
+.feedback {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 1fr;
+  row-gap: 1rem;
+  background-color: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 0.7rem;
+  h3 {
+    .textAddStyles(@white, 20px, 400);
+  }
+  .feedback__personInfoContainer {
+    display: grid;
+    grid-template-columns: 40px 1fr;
+    column-gap: 12px;
+    align-items: center;
+    .feedback__personImage {
+      width: 40px;
+      height: 40px;
+      border-radius: 500px;
+      border: 2px solid @white;
+    }
+    .feedback__nameAndRateContainer {
+      display: flex;
+      flex-direction: column;
+      .feedback__starsContainer {
+        display: flex;
+
+        img {
+          width: 18px;
+          height: 18px;
+        }
+      }
+      span {
+        .textAddStyles(rgba(255,255,255,0.7), 14px, 400);
+      }
+    }
+  }
+}

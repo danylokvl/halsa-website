@@ -2,7 +2,11 @@ import "./App.less";
 import Header from "./header/Header";
 
 const App = () => {
-  return <Header />;
+  return (
+    <main>
+      <Header />
+    </main>
+  );
 };
 
 export default App;
