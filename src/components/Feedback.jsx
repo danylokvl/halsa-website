@@ -2,9 +2,9 @@ import StarIcon from "../assets/icons/star.svg";
 import "./feedback.less";
 
 const Feedback = ({ additionalStyles, title, img, imgAlt, name, starsCount }) => {
-  let array = [];
+  let starsArray = [];
   for (let index = 0; index < starsCount; index++) {
-    array.push(index);
+    starsArray.push(index);
   }
 
   return (
@@ -14,8 +14,8 @@ const Feedback = ({ additionalStyles, title, img, imgAlt, name, starsCount }) =>
         <img className="feedback__personImage" src={img} alt={imgAlt} />
         <div className="feedback__nameAndRateContainer">
           <div className="feedback__starsContainer">
-            {array.map((element) => (
-              <img src={StarIcon} alt="star" key={element} />
+            {starsArray.map((_, index) => (
+              <img src={StarIcon} alt="star" key={index * Math.random()} />
             ))}
           </div>
 

@@ -1,3 +1,5 @@
+import { useState, useRef } from "react";
+
 import "./header.less";
 import logo from "../assets/icons/logo.svg";
 import ScrollableButton from "../components/ScrollableButton";
@@ -5,6 +7,16 @@ import BurgerMenu from "./BurgerMenu";
 import HiddenNav from "../components/hiddenNav/HiddenNav";
 
 const Header = () => {
+  const hiddenNavRef = useRef(null);
+  const pagesButtonRef = useRef(null);
+  const pagesButtonHandleMouseLeave = (event) => {
+    const pagesButtonRect = pagesButtonRef.current.getBoundingClientRect();
+
+    event.clientY >= pagesButtonRect.bottom
+      ? (hiddenNavRef.current.style.display = "grid")
+      : (hiddenNavRef.current.style.display = "none");
+  };
+
   return (
     <header className="header">
       <nav className="header__nav">
@@ -26,7 +38,16 @@ const Header = () => {
             <button className="header__navButton">Blog</button>
           </li>
           <li>
-            <button className="header__navButton">Pages</button>
+            <button
+              ref={pagesButtonRef}
+              className="header__navButton"
+              id="pagesButton"
+              aria-controls="hiddenNav"
+              onMouseEnter={() => (hiddenNavRef.current.style.display = "grid")}
+              onMouseLeave={pagesButtonHandleMouseLeave}
+            >
+              Pages
+            </button>
           </li>
         </ul>
         <div className="header__rightBlock">
@@ -35,7 +56,7 @@ const Header = () => {
         </div>
         <BurgerMenu />
       </nav>
-      <HiddenNav />
+      <HiddenNav hiddenNavRef={hiddenNavRef} />
     </header>
   );
 };

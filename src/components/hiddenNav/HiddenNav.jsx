@@ -2,9 +2,17 @@ import "./HiddenNav.less";
 import Feedback from "../Feedback";
 import feedbackImg1 from "../../assets/img/feedbackImg1.webp";
 
-const HiddenNav = () => {
+const HiddenNav = ({ hiddenNavRef }) => {
   return (
-    <nav className="header__hiddenNav">
+    <nav
+      className="header__hiddenNav"
+      id="hiddenNav"
+      aria-hidden="true"
+      aria-labelledby="pagesButton"
+      style={{ display: "none" }}
+      ref={hiddenNavRef}
+      onMouseLeave={() => (hiddenNavRef.current.style.display = "none")}
+    >
       <div className="header__hiddenNavLeftContainer">
         <Feedback
           additionalStyles={{ padding: "20px" }}
