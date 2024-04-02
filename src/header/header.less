@@ -25,6 +25,11 @@
           .buttonAddStyles(@border: 1px solid rgba(24,24,24,0.07));
         }
       }
+      #pagesButton {
+        display: flex;
+        align-items: center;
+        column-gap: 4px;
+      }
     }
   }
   .header__rightBlock {
@@ -45,6 +50,19 @@
 
     .header__signUpButton {
       .scrollableButtonStyles(@white);
+    }
+  }
+}
+
+@media (max-width: @sizes[tablet]) {
+  .header {
+    .header__nav {
+      .header__navButtonsList {
+        display: none !important;
+        #pagesButton {
+          display: none;
+        }
+      }
     }
   }
 }

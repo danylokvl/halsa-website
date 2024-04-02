@@ -1,17 +1,19 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 
 import "./header.less";
 import logo from "../assets/icons/logo.svg";
+import arrowDown from "../assets/icons/arrow-down.svg";
 import ScrollableButton from "../components/ScrollableButton";
 import BurgerMenu from "./BurgerMenu";
 import HiddenNav from "../components/hiddenNav/HiddenNav";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   const hiddenNavRef = useRef(null);
   const pagesButtonRef = useRef(null);
+
   const pagesButtonHandleMouseLeave = (event) => {
     const pagesButtonRect = pagesButtonRef.current.getBoundingClientRect();
-
     event.clientY >= pagesButtonRect.bottom
       ? (hiddenNavRef.current.style.display = "grid")
       : (hiddenNavRef.current.style.display = "none");
@@ -47,6 +49,7 @@ const Header = () => {
               onMouseLeave={pagesButtonHandleMouseLeave}
             >
               Pages
+              <img src={arrowDown} alt="arrowDown" />
             </button>
           </li>
         </ul>
@@ -57,6 +60,7 @@ const Header = () => {
         <BurgerMenu />
       </nav>
       <HiddenNav hiddenNavRef={hiddenNavRef} />
+      <MobileNav />
     </header>
   );
 };

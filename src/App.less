@@ -1,3 +1,5 @@
+@import "./variablesAndMixins.less";
+
 @import "header/header.less";
 
 /*---------------------------------------------------------------------------------*/
@@ -18,4 +20,10 @@ button {
   font-size: 15px;
   line-height: 120%;
   cursor: pointer;
+}
+
+@media (max-width: @sizes[tablet]) {
+  #root {
+    padding: 0 24px;
+  }
 }
