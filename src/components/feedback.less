@@ -9,6 +9,7 @@
   background-color: rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(15px);
   border-radius: 0.7rem;
+
   h3 {
     .textAddStyles(@white, 20px, 400);
   }
@@ -36,6 +37,53 @@
       }
       span {
         .textAddStyles(rgba(255,255,255,0.7), 14px, 400);
+        white-space: nowrap;
+      }
+    }
+  }
+}
+
+.feedback.noBackground {
+  background-color: unset;
+  backdrop-filter: unset;
+  grid-template-rows: unset;
+  .feedback__personInfoContainer {
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    .feedback__imagesContainer {
+      display: flex;
+      justify-content: flex-end;
+      padding-left: 12px;
+      .feedback__personImage {
+        margin-left: -10px;
+      }
+    }
+    .feedback__nameAndRateContainer {
+      span {
+        .textAddStyles(rgba(24,33,45,0.5), 14px, 400);
+        text-align: start;
+      }
+    }
+  }
+}
+
+@media (max-width: @sizes[tablet]) {
+  .feedback.noBackground {
+    .feedback__personInfoContainer {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr 1fr;
+      row-gap: 4px;
+      .feedback__imagesContainer {
+        justify-content: center;
+      }
+      .feedback__nameAndRateContainer {
+        row-gap: 4px;
+        .feedback__starsContainer {
+          justify-content: center;
+        }
+        span {
+          text-align: center;
+        }
       }
     }
   }

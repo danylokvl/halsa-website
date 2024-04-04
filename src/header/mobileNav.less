@@ -1,11 +1,13 @@
 @import "../variablesAndMixins.less";
 
 .header__mobileNavContainer {
+  visibility: hidden;
   opacity: 0;
   position: absolute;
   top: 130%;
   left: 0;
   right: 0;
+  z-index: 999;
   transition: transform 1s ease, opacity 1s ease;
   display: flex;
   padding: 32px;
@@ -32,6 +34,7 @@
 
 @media (max-width: @sizes[tablet]) {
   .header__mobileNavContainer.active {
+    visibility: visible;
     opacity: 1;
     transform: translateY(-40px);
   }
